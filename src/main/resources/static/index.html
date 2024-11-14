@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="nose.css">
+    <title>Bouncing DVD</title>
+    <style>
+        #dvdImage {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<p><a href="/connect">Pa la database jiojiojio</a></p>
+<form id="form1" runat="server">
+    <div>
+        <button type="button" onclick="startBouncing()">Start Bouncing</button>
+        <button type="button" onclick="stopBouncing()">Stop Bouncing</button>
+        <img id="dvdImage" src="imgs/gatoxd.jfif" alt="DVD Image" />
+    </div>
+</form>
+
+<script>
+    var dx = 2;
+    var dy = 2;
+    var x = 0;
+    var y = 0;
+    var img = document.getElementById("dvdImage");
+    var interval;
+
+    function startBouncing() {
+        interval = setInterval(moveImage, 10);
+    }
+
+    function stopBouncing() {
+        clearInterval(interval);
+    }
+
+    function moveImage() {
+        var imgWidth = img.clientWidth;
+        var imgHeight = img.clientHeight;
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+
+        x += dx;
+        y += dy;
+
+        if (x <= 0 || x + imgWidth >= windowWidth) {
+            dx = -dx;
+        }
+        if (y <= 0 || y + imgHeight >= windowHeight) {
+            dy = -dy;
+        }
+
+        img.style.left = x + "px";
+        img.style.top = y + "px";
+    }
+</script>
+</body>
+</html>

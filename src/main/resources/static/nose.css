@@ -1,0 +1,10 @@
+* {
+    background-color: black;
+    background-image: url('imgs/5-cosas-sobre-el-espacio-y-la-materia-que-debemos-tener-claras.jpg');
+}
+
+button{
+    color: white;
+    border: solid 1pX;
+    border-color: white;
+}
